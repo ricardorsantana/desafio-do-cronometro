@@ -1,5 +1,7 @@
-# desafio-do-cronometro
+# Desafio do Cronometro
 Desafio do Cronometro rodando em Raspberry Pi
+
+![Desafio do Cronometro](/imagens/img_04.jpg)
 
 # Ideia
 Vi essa brincadeira em uma pizzaria, onde existia um desafio de quem conseguisse parar um cronometro em exatos 10 segundos (00:10:00) ganharia uma caneca de chopp.
@@ -11,12 +13,12 @@ Achei a brincadeira legal e decidi fazer a minha versão rodando em um Raspberry
 - Raspberry Pi 3B+
 - Monitor (usei um externo mas pode ser qualquer tela que funcione no raspberry)
 - Botão (usei um botão tic-tac daqueles de fiperama.)
-  (https://lista.mercadolivre.com.br/botao-fliperama)
+  [Lista mercado Livre](https://lista.mercadolivre.com.br/botao-fliperama)
 - Fio ou cabo jamper para ligar o botão na Gpio do raspberry.
-  (https://lista.mercadolivre.com.br/cabo-jumper?sb=all_mercadolibre#D[A:cabo%20jumper])
+  [Lista mercado Livre](https://lista.mercadolivre.com.br/cabo-jumper?sb=all_mercadolibre#D[A:cabo%20jumper])
 
 
-# Passo a passo:
+# Passo a passo
 
 - Instalar dependencias;
 - Configurar tela do Raspberry para não desligar/hibernar;
@@ -28,4 +30,4 @@ Achei a brincadeira legal e decidi fazer a minha versão rodando em um Raspberry
 # Comandos / Funcionalidades:
 
 - Pressionar o botão 1x, inicia ou para o cronometro;
-- pressionar e segurar o botão pressionado por 3 segundos, zera o cronometro.
+- Pressionar e segurar o botão pressionado por 3 segundos, zera o cronometro.
