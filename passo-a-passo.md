@@ -2,14 +2,6 @@
 
 Considerando que você já tem o Raspberry Pi configurado com o sistema operacional Raspberry Pi OS (ou outra distro Linux de sua preferencia) com interface gráfica, siga os passos abaixo para configurar o Desafio do Cronometro.
 
-## Instalando Dependencias do sistema:
-
-sudo apt update
-sudo apt install python3-tk python3-rpi.gpio python3-pil python3-pil.imagetk unclutter sox
-sudo apt install fonts-freefont-ttf
-sudo pip3 install pillow
-sudo apt install sox
-
 
 ---------------------------------------------
 ## Configurar tela do Raspberry para não desligar/hibernar;
@@ -19,31 +11,48 @@ sudo apt install sox
 
 sudo raspi-config
 
-
 - Vá até a opção "Display Options" 
 
 (img_01)
-![Display Options](/imagens/botao_fliperama.jpeg)
-<img src="/imagens/botao_fliperama.jpeg" alt="Display Options">
+![Display Options](/imagens/img_01.png)
 
 - Selecione a opção "Screen Blanking"
 
 (img_02)
+![Screen Blanking](/imagens/img_02.png)
 
 Um prompt aparecerá perguntando sobre sua escolha para habilitar ou 
-desabilitar o apagamento da tela. Como queremos desativá-lo aqui, 
-escolhemos o Não opção usando o botão “mudança” e depois o “seta direita" 
-chave. Então aperte "Digitar”.
-
-Observação: O usuário também pode escolher o Sim opção se quiserem habilitar, 
-mas como por padrão a tela em branco já está habilitada, não há necessidade 
-de explicá-la para habilitar.
+desabilitar a hibernação da tela.
+Como queremos desativar o mode de hibernação que por padrão vem habilitado, escolha a opção "Não/No".
 
 (img_03)
+![Enable Screen Blanking](/imagens/img_03.png)
 
 ---------------------------------------------
+## Instalando Dependencias do sistema:
 
+sudo apt update
+sudo apt install python3-tk python3-rpi.gpio python3-pil python3-pil.imagetk unclutter sox
+sudo apt install fonts-freefont-ttf
+sudo pip3 install pillow
+sudo apt install sox
 
+---------------------------------------------
+## Copie o script do desafio para dentro do Raspberry:
+
+- Crie um diretório dentro da home chamado "desafio_10s"
+(/home/pi/desafio_10s)
+
+mkdir desafio_10s
+
+- Dentro do diretório criado, crie o arquivo "desafio_10s.py"
+
+nano desafio_10s.py
+
+E copie o conteúdo do script Python para dentro deste arquivo:
+
+---------------------------------------------
+## Rode o scritp Python no boot do Raspberry:
 
 ->> 🚀 AUTO START NO BOOT
 ->>> Criar serviço:
