@@ -24,6 +24,7 @@ sudo raspi-config
 
 (img_01)
 ![Display Options](/imagens/botao_fliperama.jpeg)
+<img src="/imagens/botao_fliperama.jpeg" alt="Display Options">
 
 - Selecione a opção "Screen Blanking"
 
