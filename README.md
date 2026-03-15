@@ -8,6 +8,8 @@ Vi essa brincadeira em uma pizzaria, onde existia um desafio de quem conseguisse
 
 Achei a brincadeira legal e decidi fazer a minha versão rodando em um Raspberry PI ligado em uma boteira e um monitor.
 
+![Display Options](/imagens/img_07.jpeg)
+
 # Materiais (v1)
 
 - Raspberry Pi 3B+

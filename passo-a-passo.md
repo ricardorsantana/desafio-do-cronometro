@@ -4,6 +4,17 @@ Considerando que você já tem o Raspberry Pi configurado com o sistema operacio
 
 
 ---------------------------------------------
+## Instalando Dependencias do sistema:
+
+```command
+sudo apt update
+sudo apt install python3-tk python3-rpi.gpio python3-pil python3-pil.imagetk unclutter sox
+sudo apt install fonts-freefont-ttf
+sudo pip3 install pillow
+sudo apt install sox
+```
+
+---------------------------------------------
 ## Configurar tela do Raspberry para não desligar/hibernar;
 
 - via terminal
@@ -26,15 +37,59 @@ Como queremos desativar o mode de hibernação que por padrão vem habilitado, e
 ![Enable Screen Blanking](/imagens/img_03.png)
 
 ---------------------------------------------
-## Instalando Dependencias do sistema:
+## Ligando o botão ao Raspberry:
+
+- Vamos ligar o botão que fará o acionamento e reset do cronômetro nos terminais GPIO do Raspberry.
+Vamos utilizar os pinos 18 (GPIO 24), e o pino 20 (GND/Ground/Terra) na conexão.
+
+![Raspberry GPIO](/imagens/raspberry_pi_3_model_b_plus_gpio.jpeg)
+
+Um terminal do botão → GPIO 17
+
+Outro terminal do botão → GND (terra)
+
+Se quiser testar o funcionamento do botão fora do jogo, pode rodar o script abaixo:
+
+Script:
+
+```python
+import RPi.GPIO as GPIO
+import time
+
+BOTAO = 24  # pino GPIO que você está usando
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(BOTAO, GPIO.IN, pull_up_down=GPIO.PUD_UP)  # PUD_UP se o botão conecta ao GND
+
+print("Pino 24 configurado como entrada com pull-up. Teste iniciando...")
+
+try:
+    while True:
+        if GPIO.input(BOTAO) == 0:
+            print("Botão pressionado!")
+        time.sleep(0.1)  # mantém o script rodando
+except KeyboardInterrupt:
+    print("Saindo...")
+finally:
+    GPIO.cleanup()
+    print("GPIO limpo")
+```
+
+
+Comando para rodar o script:
 
 ```command
-sudo apt update
-sudo apt install python3-tk python3-rpi.gpio python3-pil python3-pil.imagetk unclutter sox
-sudo apt install fonts-freefont-ttf
-sudo pip3 install pillow
-sudo apt install sox
+ /usr/bin/python3 /home/pi/desafio_10s/teste_botao.py
 ```
+
+![Teste Botão](/imagens/img_05.png)
+
+Cada vez que o botão for pressionado, ele irá printar em tela:
+
+![Teste Botão](/imagens/img_06.png)
+
+Pressione CTRL + C para encerrar a execução do script e parar o teste.
+
 
 ---------------------------------------------
 ## Copie o script do desafio para dentro do Raspberry:
@@ -52,7 +107,8 @@ mkdir desafio_10s
 nano desafio_10s.py
 ```
 
-E copie o conteúdo do script Python para dentro deste arquivo:
+E copie o conteúdo do script ```desafio_10s.py``` Python para dentro deste arquivo.
+
 
 ---------------------------------------------
 ## Rode o scritp Python no boot do Raspberry:
@@ -95,13 +151,3 @@ sudo systemctl start desafio10s
 ```
 
 ---------------------------------------------
-## Rode o scritp Python no boot do Raspberry:
-
-->>> 🔘 LIGAÇÃO DO BOTÃO
-✅ Conexões corretas
-
-Um terminal do botão → GPIO 17
-
-Outro terminal do botão → GND (terra)
-
-👉 Não precisa resistor externo, o código já ativa o pull-up interno do Raspberry Pi.
