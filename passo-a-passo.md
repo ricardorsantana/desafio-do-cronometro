@@ -42,7 +42,7 @@ Como queremos desativar o mode de hibernação que por padrão vem habilitado, e
 - Vamos ligar o botão que fará o acionamento e reset do cronômetro nos terminais GPIO do Raspberry.
 Vamos utilizar os pinos 18 (GPIO 24), e o pino 20 (GND/Ground/Terra) na conexão.
 
-![Raspberry GPIO](/imagens/raspberry_pi_3_model_b_plus_gpio.jpeg)
+![Raspberry GPIO](/imagens/raspberry_pi_3_model_b_plus_gpio.jpg)
 
 Um terminal do botão → GPIO 17
 
